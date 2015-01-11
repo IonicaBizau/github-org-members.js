@@ -45,7 +45,7 @@
           , text
           ;
 
-        while (text = re.exec(template)) {
+        while ((text = re.exec(template)) !== null) {
             fields.push(text[1]);
         }
 
@@ -155,7 +155,7 @@
             members = mData.members;
 
             if (err) {
-                html = "An error ocured."
+                html = "An error ocured.";
             } else {
                 for (; i < members.length; ++i) {
                     html += Mustache(userHtml, members[i]);
@@ -169,7 +169,7 @@
     }
 
     // Version
-    GhOrgMembers.version = "1.0.0"
+    GhOrgMembers.version = "1.0.0";
 
     window.GhOrgMembers = GhOrgMembers;
 })(window);
