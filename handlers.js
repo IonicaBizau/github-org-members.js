@@ -1,9 +1,14 @@
 window.addEventListener("load", function () {
+
     var orgMembers = GhOrgMembers({
         container: "org-members"
-      , user: "user"
+      , userTempl: "<user>"
+                 + "    <a href='{{html_url}}' target='blank'>"
+                 + "        <img src='{{avatar_url}}' class='avatar'>"
+                 + "        <span class='name'>{{login}}</span>"
+                 + "    </a>"
+                 + "</user>"
       , org: "github"
-      , token: "d93cfb1b68f826db443544f4421db164fea375a1"
     });
 
     orgMembers.done = function (err, data) {
