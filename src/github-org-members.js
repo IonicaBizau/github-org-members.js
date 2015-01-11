@@ -1,3 +1,11 @@
+/*!
+ *  github-org-members.js
+ *  =====================
+ *  A JavaScript library for fetching and rendering in HTML the
+ *  members of a GitHub organization.
+ *
+ *  Developed with JavaScript and Love by Ionică Bizău.
+ * */
 (function (window) {
 
     /* jQuery simulator */
@@ -135,6 +143,9 @@
         });
         return self;
     }
+
+    // Version
+    GhOrgMembers.version = "1.0.0"
 
     window.GhOrgMembers = GhOrgMembers;
 })(window);
