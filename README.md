@@ -1,9 +1,9 @@
 `github-org-members.js`
 =====================
-A JavaScript library for fetching and rendering in HTML the members of a GitHub organization. Inspired from [GitHub's About page](https://github.com/about/team).
+A JavaScript library for fetching and rendering in HTML the members of a GitHub organization. Inspired from the [GitHub's About page](https://github.com/about/team).
 
 ## Demo
-[Click here](http://ionicabizau.github.io/github-org-members.js/) for a demo fetching the members of [GitHub organization](https://github.com/github).
+[Click here](http://ionicabizau.github.io/github-org-members.js/) for a demo, where we fetch the public members of the [GitHub organization](https://github.com/github).
 
 [![](http://i.imgur.com/iyXuWBN.png)](http://ionicabizau.github.io/github-org-members.js/)
 
@@ -28,7 +28,10 @@ A JavaScript library for fetching and rendering in HTML the members of a GitHub 
         </a>
     </user>
 </org-members>
+
+<!-- Include the script on the page -->
 <script src="path/to/github-org-members.js"></script>
+
 <script>
     var orgMembers = GhOrgMembers({
         // Select the container
