@@ -106,10 +106,12 @@ user:hover span {
 
 .bubble {
     -webkit-animation: expand .75s ease-in-out infinite;
+    -moz-animation: expand .75s ease-in-out infinite;
     animation: expand .75s ease-in-out infinite;
     border-radius: 100%;
     display: inline-block;
     -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
     -ms-transform-origin: center center;
     transform-origin: center center;
     margin: 0 3px;
@@ -123,18 +125,21 @@ user:hover span {
 
 .bubble:nth-child(2) {
     -webkit-animation-delay: 180ms;
+    -moz-animation-delay: 180ms;
     animation-delay: 180ms;
     background: #f1c40f;
 }
 
 .bubble:nth-child(3) {
     -webkit-animation-delay: 360ms;
+    -moz-animation-delay: 360ms;
     animation-delay: 360ms;
     background: #e67e22;
 }
 
 .bubble:nth-child(4) {
     -webkit-animation-delay: 540ms;
+    -moz-animation-delay: 540ms;
     animation-delay: 540ms;
     background: #2980b9;
 }
@@ -142,10 +147,12 @@ user:hover span {
 @-webkit-keyframes expand {
     0% {
         -webkit-transform: scale(1);
+        -moz-transform: scale(1);
         transform: scale(1);
     }
     25% {
         -webkit-transform: scale(1.55);
+        -moz-transform: scale(1.55);
         transform: scale(1.55);
     }
 }
@@ -153,10 +160,12 @@ user:hover span {
 @keyframes expand {
     0% {
         -webkit-transform: scale(1);
+        -moz-transform: scale(1);
         transform: scale(1);
     }
     25% {
         -webkit-transform: scale(1.55);
+        -moz-transform: scale(1.55);
         transform: scale(1.55);
     }
 }
