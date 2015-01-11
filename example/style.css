@@ -1,0 +1,119 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,latin-ext);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.min.css);
+
+body, html {
+    background: #ecf0f1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    text-align: center;
+    font-weight: 100;
+}
+
+article {
+    text-align: center;
+}
+
+user {
+    width: 150px;
+    display: inline-block;
+    margin: 10px 20px;
+    text-align: center;
+}
+
+user img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.39);
+}
+
+user img,
+user span {
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+user span {
+    position: relative;
+    top: -90px;
+    opacity: 0;
+    color: black;
+    font-size: 15px;
+}
+
+user a {
+    text-decoration: none;
+}
+
+user:hover img {
+    opacity: 0.2;
+}
+
+user:hover span {
+    opacity: 1;
+}
+
+/* spinner */
+.loader {
+}
+
+.bubble {
+    -webkit-animation: expand .75s ease-in-out infinite;
+    animation: expand .75s ease-in-out infinite;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    margin: 0 3px;
+    width: 14px;
+    height: 14px;
+}
+
+.bubble:nth-child(1) {
+    background: #27ae60;
+}
+
+.bubble:nth-child(2) {
+    -webkit-animation-delay: 180ms;
+    animation-delay: 180ms;
+    background: #f1c40f;
+}
+
+.bubble:nth-child(3) {
+    -webkit-animation-delay: 360ms;
+    animation-delay: 360ms;
+    background: #e67e22;
+}
+
+.bubble:nth-child(4) {
+    -webkit-animation-delay: 540ms;
+    animation-delay: 540ms;
+    background: #2980b9;
+}
+
+@-webkit-keyframes expand {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    25% {
+        -webkit-transform: scale(1.55);
+        transform: scale(1.55);
+    }
+}
+
+@keyframes expand {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    25% {
+        -webkit-transform: scale(1.55);
+        transform: scale(1.55);
+    }
+}
