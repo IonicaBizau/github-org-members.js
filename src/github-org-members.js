@@ -1,5 +1,6 @@
 (function (window) {
 
+    /* jQuery simulator */
     function $(s, c) {
         if (typeof s !== "string") { return s; }
         c = c || document;
@@ -11,6 +12,7 @@
         return c.querySelector(s);
     }
 
+    /* getJSON implementation in vanilla JS */
     $.getJSON = function (url, callback) {
         var xhr = new XMLHttpRequest();
         callback = callback || function () {};
@@ -27,28 +29,7 @@
         };
     };
 
-
-    function getAllMembers (org, token, callback) {
-        var apiUrl = "https://api.github.com/orgs/"
-          + org + "/members?per_page=100&access_token="
-          + token + "&page="
-          , data = []
-          ;
-
-        function getSeq(p) {
-            $.getJSON(apiUrl + p, function (err, dSeq) {
-                if (err) { return callback(err); }
-                data = data.concat(dSeq);
-                if (dSeq.length === 0) {
-                    return callback(null, data);
-                }
-                getSeq(p + 1);
-            });
-        }
-
-        getSeq(1);
-    }
-
+    /* {{Mustache}} like template */
     function Mustache (template, data) {
 
         var fields = []
@@ -67,9 +48,61 @@
         return template;
     }
 
-    function GhOrgMembers(options) {
+    /*!
+     * getAllMembers
+     * Gets all the members from an organization.
+     *
+     * @name getAllMembers
+     * @function
+     * @param {String} org The GitHub organization name.
+     * @param {String} token Optional token that is passed to the API requests.
+     * @param {Function} callback The callback function.
+     * @return {undefined}
+     */
+    function getAllMembers (org, token, callback) {
+        var apiUrl = "https://api.github.com/orgs/" + org + "/members?per_page=100"
+          , data = []
+          ;
+
+        if (token) {
+            apiUrl += "&access_token=" + token;
+        }
+
+        apiUrl += "&page=";
+
+        function getSeq(p) {
+            $.getJSON(apiUrl + p, function (err, dSeq) {
+                if (err) { return callback(err); }
+                data = data.concat(dSeq);
+                if (dSeq.length === 0) {
+                    return callback(null, data);
+                }
+                getSeq(p + 1);
+            });
+        }
+
+        getSeq(1);
+    }
+
+    /**
+     * GhOrgMembers
+     * Inits the GhOrgMembers instance.
+     *
+     * @name GhOrgMembers
+     * @function
+     * @param {Object} options An object containing the following fields:
+     *
+     *  - `container` (String|HTMLElement): The container element (e.g. `".myClass"`, `document.getElementById("foo")`).
+     *  - `user` (String|HTMLElement): The user element (e.g. `".user"`, `document.getElementById("user")`).
+     *  - `org` (String): The organization name (e.g. `"GitHub"`).
+     *  - `token` (String): An optional token. It is useful for getting the private members and for a greater rate limit.
+     *
+     * @return {Object} An object containing the following fields:
+     */
+    function GhOrgMembers (options) {
+
         var containerEl = $(options.container)
-          , userEl = $(options.user, containerEl)
+          , userEl = $(options.user)
           , userHtml = userEl.outerHTML
           , html = ""
           , i = 0
@@ -82,6 +115,7 @@
           ;
 
         userEl.remove();
+
         getAllMembers(options.org, options.token, function (err, members) {
 
             var mData = self.modifyData(err, members);
