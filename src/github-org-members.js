@@ -8,7 +8,7 @@
  * */
 (function (window) {
 
-    /* jQuery simulator */
+    /*! jQuery simulator */
     function $(s, c) {
         if (typeof s !== "string") { return s; }
         c = c || document;
@@ -20,7 +20,7 @@
         return c.querySelector(s);
     }
 
-    /* getJSON implementation in vanilla JS */
+    /*! getJSON implementation in vanilla JS */
     $.getJSON = function (url, callback) {
         var xhr = new XMLHttpRequest();
         callback = callback || function () {};
@@ -37,7 +37,7 @@
         };
     };
 
-    /* {{Mustache}} like template */
+    /*! {{Mustache}} like template */
     function Mustache (template, data) {
 
         var fields = []
@@ -94,7 +94,7 @@
 
     /**
      * GhOrgMembers
-     * Inits the GhOrgMembers instance.
+     * Inits the `GhOrgMembers` instance.
      *
      * @name GhOrgMembers
      * @function
@@ -106,6 +106,10 @@
      *  - `token` (String): An optional token. It is useful for getting the private members and for a greater rate limit.
      *
      * @return {Object} An object containing the following fields:
+     *
+     *  - [`modifyData` (Function)](#selfmodifydataerr-members)
+     *  - [`done` (Function)](#selfdoneerr-members)
+     *
      */
     function GhOrgMembers (options) {
 
@@ -115,9 +119,29 @@
           , html = ""
           , i = 0
           , self = {
+                /**
+                 * modifyData
+                 * This method is called after fetching the users and before rendering the HTML.
+                 *
+                 * @name modifyData
+                 * @function
+                 * @param {Object|null} err The response error value.
+                 * @param {Array} members The fetched members.
+                 * @return {Object} An object containing the `err` and `members` fields.
+                 */
                 modifyData: function (err, members) {
                     return { err: err, members: members };
                 }
+
+                /**
+                 * done
+                 * This method is called after HTML rendering is done.
+                 *
+                 * @name done
+                 * @function
+                 * @param {Object|null} err The response error value.
+                 * @param {Array} members The fetched members.
+                 */
               , done: function (err, members) {}
             }
           ;
