@@ -6,6 +6,8 @@ window.addEventListener("load", function () {
     });
 
     orgMembers.done = function (err, data) {
+        if (err) { return; }
         document.getElementById("count").innerHTML = data.length.toString();
+        document.querySelector(".description").style.display = "block";
     };
 });

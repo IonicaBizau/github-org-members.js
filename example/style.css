@@ -4,11 +4,48 @@
 body, html {
     background: #ecf0f1;
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+p.copyright {
+    padding: 26px;
+    margin-bottom: 0;
+}
+
+org-members {
+}
+
+.container {
+    width: 760px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+header, p.copyright {
+    background-color: #e74c3c;
+    background-image: url("bg.png");
+    color: white;
+    box-shadow: 0 0 5px black;
+    text-align: center;
+}
+
+.copyright > a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+.copyright > a:hover {
+    text-decoration: underline;
+}
+
+.description {
+    display: none;
 }
 
 header {
-    text-align: center;
     font-weight: 100;
+    padding: 60px;
+    margin-bottom: 20px;
 }
 
 article {
@@ -117,3 +154,4 @@ user:hover span {
         transform: scale(1.55);
     }
 }
+
