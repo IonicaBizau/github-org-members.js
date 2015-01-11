@@ -74,7 +74,7 @@
             $.getJSON(apiUrl + p, function (err, dSeq) {
                 if (err) { return callback(err); }
                 data = data.concat(dSeq);
-                if (dSeq.length === 0) {
+                if (dSeq.length !== 100) {
                     return callback(null, data);
                 }
                 getSeq(p + 1);
