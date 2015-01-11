@@ -7,29 +7,48 @@ body, html {
     margin: 0;
 }
 
+/* btn */
+.btn {
+    background: white;
+    color: #e74c3c;
+    text-decoration: none;
+    padding: 8px;
+    margin: 4px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.33);
+}
+
 /* header */
 header, p.copyright {
     background-color: #e74c3c;
     background-image: url("bg.png");
     color: white;
-    box-shadow: 0 0 5px black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.33);
     text-align: center;
 }
 
 header {
     font-weight: 100;
-    padding: 60px;
+    padding: 120px 0;
     margin-bottom: 20px;
 }
 
 header > h1 {
     font-weight: 100;
+    margin: 0;
 }
 
 header > .description {
     display: none;
+    margin: 0;
 }
 
+header > .buttons {
+    margin-top: 28px;
+}
 
 p.copyright {
     padding: 26px;
