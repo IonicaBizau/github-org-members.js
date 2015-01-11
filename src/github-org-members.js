@@ -28,8 +28,10 @@
     };
 
 
-    function getAllMembers (org, callback) {
-        var apiUrl = "https://api.github.com/orgs/" + org + "/members?per_page=100&page="
+    function getAllMembers (org, token, callback) {
+        var apiUrl = "https://api.github.com/orgs/"
+          + org + "/members?per_page=100&access_token="
+          + token + "&page="
           , data = []
           ;
 
@@ -80,7 +82,7 @@
           ;
 
         userEl.remove();
-        getAllMembers(options.org, function (err, members) {
+        getAllMembers(options.org, options.token, function (err, members) {
 
             var mData = self.modifyData(err, members);
             err = mData.err;
