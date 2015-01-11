@@ -114,7 +114,7 @@
     function GhOrgMembers (options) {
 
         var containerEl = $(options.container)
-          , userEl = $(options.user)
+          , userEl = options.user ? $(options.user) : { outerHTML: options.userTempl }
           , userHtml = userEl.outerHTML
           , html = ""
           , i = 0
@@ -146,7 +146,9 @@
             }
           ;
 
-        userEl.remove();
+        if (typeof userEl.remove === "function") {
+            userEl.remove();
+        }
 
         getAllMembers(options.org, options.token, function (err, members) {
 
