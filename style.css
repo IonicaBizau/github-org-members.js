@@ -1,25 +1,16 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,latin-ext);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.min.css);
+@import url("caiuss.min.css");
 
 body, html {
     background: #ecf0f1;
     font-family: 'Open Sans', sans-serif;
     margin: 0;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
 }
 
 /* btn */
-.btn {
-    background: white;
-    color: #e74c3c;
-    text-decoration: none;
-    padding: 8px;
-    margin: 4px;
-    font-weight: bold;
-}
-
 .btn:hover {
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.33);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* header */
@@ -27,7 +18,7 @@ header, p.copyright {
     background-color: #e74c3c;
     background-image: url("bg.png");
     color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.33);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
@@ -60,12 +51,12 @@ p.copyright {
     left: 0;
 }
 
-/* container */
-.container {
-    width: 760px;
-    margin: 0 auto;
-    max-width: 100%;
-    padding: 40px 0;
+.img {
+    border-radius: 4px;
+}
+
+.img:hover {
+    opacity: 0.7;
 }
 
 /* user */
