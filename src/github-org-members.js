@@ -99,13 +99,14 @@
      *  - `org` (String): The organization name (e.g. `"GitHub"`).
      *  - `source` (String): An optional url that should serve all the members. It is useful for getting the private members, without depending on the rate limits.
      *
+     * @param {Function} callback An optional callback.
      * @return {Object} An object containing the following fields:
      *
      *  - [`modifyData` (Function)](#selfmodifydataerr-members)
      *  - [`done` (Function)](#selfdoneerr-members)
      *
      */
-    function GhOrgMembers (options) {
+    function GhOrgMembers (options, callback) {
 
         var containerEl = $(options.container)
           , userEl = options.user ? $(options.user) : { outerHTML: options.userTempl }
@@ -136,7 +137,7 @@
                  * @param {Object|null} err The response error value.
                  * @param {Array} members The fetched members.
                  */
-              , done: function (err, members) {}
+              , done: callback || function (err, members) {}
             }
           ;
 
