@@ -63,20 +63,13 @@
      * @name getAllMembers
      * @function
      * @param {String} org The GitHub organization name.
-     * @param {String} token Optional token that is passed to the API requests.
      * @param {Function} callback The callback function.
      * @return {undefined}
      */
-    function getAllMembers (org, token, callback) {
-        var apiUrl = "https://api.github.com/orgs/" + org + "/members?per_page=100"
+    function getAllMembers (org, callback) {
+        var apiUrl = "https://api.github.com/orgs/" + org + "/members?per_page=100&page="
           , data = []
           ;
-
-        if (token) {
-            apiUrl += "&access_token=" + token;
-        }
-
-        apiUrl += "&page=";
 
         function getSeq(p) {
             $.getJSON(apiUrl + p, function (err, dSeq) {
@@ -104,15 +97,16 @@
      *  - `user` (String|HTMLElement): The user element (e.g. `".user"`, `document.getElementById("user")`).
      *  - `userTempl` (String): The HTML string to use, without selecting an HTML element.
      *  - `org` (String): The organization name (e.g. `"GitHub"`).
-     *  - `token` (String): An optional token. It is useful for getting the private members and for a greater rate limit.
+     *  - `source` (String): An optional url that should serve all the members. It is useful for getting the private members, without depending on the rate limits.
      *
+     * @param {Function} callback An optional callback.
      * @return {Object} An object containing the following fields:
      *
      *  - [`modifyData` (Function)](#selfmodifydataerr-members)
      *  - [`done` (Function)](#selfdoneerr-members)
      *
      */
-    function GhOrgMembers (options) {
+    function GhOrgMembers (options, callback) {
 
         var containerEl = $(options.container)
           , userEl = options.user ? $(options.user) : { outerHTML: options.userTempl }
@@ -143,7 +137,7 @@
                  * @param {Object|null} err The response error value.
                  * @param {Array} members The fetched members.
                  */
-              , done: function (err, members) {}
+              , done: callback || function (err, members) {}
             }
           ;
 
@@ -151,23 +145,45 @@
             userEl.remove();
         }
 
-        getAllMembers(options.org, options.token, function (err, members) {
 
-            var mData = self.modifyData(err, members);
-            err = mData.err;
-            members = mData.members;
-
-            if (err) {
-                html = "An error ocured.";
-            } else {
-                for (; i < members.length; ++i) {
-                    html += Mustache(userHtml, members[i]);
-                }
+        // Different ways to get the members
+        var foos = {
+              org: function (callback) {
+                  getAllMembers(options.org, callback);
+              }
+            , source: function (callback) {
+                  $.getJSON(options.source, callback);
+              }
             }
+          , foo = typeof options.org === "string"
+            ? foos.org : (
+               typeof options.source === "string"
+               ? foos.source
+               : new Error("The org or the source fields should be strings.")
+            )
+          ;
 
-            containerEl.innerHTML = html;
-            self.done(err, members);
-        });
+        if (typeof foo === "function") {
+            foo(function (err, members) {
+                var mData = self.modifyData(err, members);
+                err = mData.err;
+                members = mData.members;
+
+                if (err) {
+                    html = "An error ocured.";
+                } else {
+                    for (; i < members.length; ++i) {
+                        html += Mustache(userHtml, members[i]);
+                    }
+                }
+
+                containerEl.innerHTML = html;
+                self.done(err, members);
+            });
+        } else {
+            throw foo;
+        }
+
         return self;
     }
 
