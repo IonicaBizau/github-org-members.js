@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>GitHub Organization Members</title>
         <script src="github-org-members.js"></script>
+        <script src="handlers.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -20,10 +21,14 @@
         </header>
         <article>
             <div class="container">
-                <div align="center">
-                    <a href="jillix.html"><img class="img-rounded" src="https://avatars3.githubusercontent.com/u/1841878?v=3&s=200" alt=""></a>
-                    <a href="github.html"><img class="img-rounded" src="https://avatars3.githubusercontent.com/u/9919?v=3&s=200" alt=""></a>
-                </div>
+                <org-members>
+                    <div class="loader">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                    </div>
+                </org-members>
             </div>
             <p class="copyright"><span class="octicon octicon-code"></span> with JavaScript and <span class="octicon octicon-heart"></span> by <a href="http://github.com/IonicaBizau">Ionică Bizău</a>.</p>
         </article>
