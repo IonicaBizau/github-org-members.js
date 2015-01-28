@@ -102,6 +102,7 @@
      *
      *  - `container` (String|HTMLElement): The container element (e.g. `".myClass"`, `document.getElementById("foo")`).
      *  - `user` (String|HTMLElement): The user element (e.g. `".user"`, `document.getElementById("user")`).
+     *  - `userTempl` (String): The HTML string to use, without selecting an HTML element.
      *  - `org` (String): The organization name (e.g. `"GitHub"`).
      *  - `token` (String): An optional token. It is useful for getting the private members and for a greater rate limit.
      *
