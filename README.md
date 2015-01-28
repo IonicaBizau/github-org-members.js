@@ -1,13 +1,13 @@
 `github-org-members.js`
 =====================
-A JavaScript library for fetching and rendering in HTML the members of a GitHub organization. Inspired from the [GitHub's About page](https://github.com/about/team).
+A JavaScript library for fetching and rendering in HTML the members of a GitHub organization.
 
 ## Demo
-[Click here](http://ionicabizau.github.io/github-org-members.js/) for a demo, where we fetch the public members of the [GitHub organization](https://github.com/github).
+[Click here](http://ionicabizau.github.io/github-org-members.js/) for a demo, where we fetch the public members of the [jillix](https://github.com/github) and [GitHub](https://github.com/github) organizations.
 
-[![](http://i.imgur.com/iyXuWBN.png)](http://ionicabizau.github.io/github-org-members.js/)
+[![](http://i.imgur.com/Mjdi8u8.png)](http://ionicabizau.github.io/github-org-members.js/)
 
-## Usage
+## Example
 
 ```html
 <!-- Organization members container -->
@@ -34,6 +34,7 @@ A JavaScript library for fetching and rendering in HTML the members of a GitHub 
 
 <script>
     var orgMembers = GhOrgMembers({
+
         // Select the container
         container: "org-members"
 
@@ -42,9 +43,6 @@ A JavaScript library for fetching and rendering in HTML the members of a GitHub 
 
         // Provide the organization name
       , org: "github"
-
-        // And an optional token
-      , token: "d93.........75a1"
     });
 
     orgMembers.done = function (err, data) {
@@ -55,9 +53,8 @@ A JavaScript library for fetching and rendering in HTML the members of a GitHub 
 </script>
 ```
 
-
 ## Documentation
-### `GhOrgMembers(options)`
+### `GhOrgMembers(options, callback)`
 Inits the `GhOrgMembers` instance.
 
 #### Params
@@ -66,7 +63,9 @@ Inits the `GhOrgMembers` instance.
  - `user` (String|HTMLElement): The user element (e.g. `".user"`, `document.getElementById("user")`).
  - `userTempl` (String): The HTML string to use, without selecting an HTML element.
  - `org` (String): The organization name (e.g. `"GitHub"`).
- - `token` (String): An optional token. It is useful for getting the private members and for a greater rate limit.
+ - `source` (String): An optional url that should serve all the members. It is useful for getting the private members, without depending on the rate limits.
+
+- **Function** `callback`: An optional callback.
 
 #### Return
 - **Object** An object containing the following fields:
