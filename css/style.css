@@ -24,7 +24,7 @@ header, p.copyright {
 
 header {
     font-weight: 100;
-    padding: 120px 0;
+    padding: 60px 0;
     margin-bottom: 20px;
 }
 
@@ -184,4 +184,74 @@ user:hover span {
         -moz-transform: scale(1.55);
         transform: scale(1.55);
     }
+}
+
+/* selector */
+
+.selector {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -70px;
+}
+
+.selector, .selector button {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+}
+
+.selector button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background: #428bca;
+  border-radius: 50%;
+  border: 0;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.19);
+  transition: all .1s;
+}
+
+.selector button:hover {
+  background: #3071a9;
+}
+
+.selector button:focus {
+  outline: none;
+}
+
+.selector ul {
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  top: -130px;
+  right: -130px;
+  bottom: -130px;
+  left: -130px;
+}
+
+.selector li {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  margin: 0 50%;
+  -webkit-transform: rotate(-360deg);
+  transition: all 0.8s ease-in-out;
+}
+
+.selector img.avatar {
+    width: 120px;
+    border-radius: 100%;
+    margin-left: -60px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.19);
+}
+
+.selector.close li {
+    opacity: 0;
 }
