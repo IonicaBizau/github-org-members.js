@@ -1,6 +1,6 @@
 {
   "name": "github-org-members.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A JavaScript library for fetching and rendering in HTML the members of a GitHub organization.",
   "main": "src/github-org-members.js",
   "directories": {
@@ -18,10 +18,74 @@
     "organization",
     "memebers"
   ],
-  "author": "Ionică Bizău <bizauionica@gmail.com>",
-  "license": "MIT",
+  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "license": "KINDLY",
   "bugs": {
     "url": "https://github.com/IonicaBizau/github-org-members.js/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/github-org-members.js"
+  "homepage": "https://github.com/IonicaBizau/github-org-members.js",
+  "blah": {
+    "installation": [
+      {
+        "h2": "Demo"
+      },
+      {
+        "p": "[Click here](http://ionicabizau.github.io/github-org-members.js/) for a demo, where we fetch the public members of the [jillix](https://github.com/github) and [GitHub](https://github.com/github) organizations."
+      },
+      {
+        "p": "[![](http://i.imgur.com/Mjdi8u8.png)](http://ionicabizau.github.io/github-org-members.js/)"
+      },
+      {
+        "h2": "Example"
+      },
+      {
+        "code": {
+          "language": "html",
+          "content": [
+            "<!-- Organization members container -->",
+            "<org-members>",
+            "    <!-- CSS Spinner -->",
+            "    <div class=\"loader\">",
+            "        <div class=\"bubble\"></div>",
+            "        <div class=\"bubble\"></div>",
+            "        <div class=\"bubble\"></div>",
+            "        <div class=\"bubble\"></div>",
+            "    </div>",
+            "",
+            "    <!-- User template -->",
+            "    <user>",
+            "        <a href=\"{{html_url}}\" target=\"blank\">",
+            "            <img src=\"{{avatar_url}}\" alt=\"\" class=\"avatar\">",
+            "            <span class=\"name\">{{login}}</span>",
+            "        </a>",
+            "    </user>",
+            "</org-members>",
+            "",
+            "<!-- Include the script on the page -->",
+            "<script src=\"path/to/github-org-members.js\"></script>",
+            "",
+            "<script>",
+            "    var orgMembers = GhOrgMembers({",
+            "",
+            "        // Select the container",
+            "        container: \"org-members\"",
+            "",
+            "        // The user element",
+            "      , user: \"user\"",
+            "",
+            "        // Provide the organization name",
+            "      , org: \"github\"",
+            "    });",
+            "",
+            "    orgMembers.done = function (err, data) {",
+            "        if (err) { return; }",
+            "        document.getElementById(\"count\").innerHTML = data.length.toString();",
+            "        document.querySelector(\".description\").style.display = \"block\";",
+            "    };",
+            "</script>"
+          ]
+        }
+      }
+    ]
+  }
 }
