@@ -5,7 +5,7 @@ A JavaScript library for fetching and rendering in HTML the members of a GitHub 
 ## Installation
 
 ```sh
-$ npm i -g github-org-members.js
+$ npm i github-org-members.js
 ```
 
 ## Demo
