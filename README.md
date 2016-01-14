@@ -1,6 +1,6 @@
-# github-org-members.js [![Support this project][donate-now]][paypal-donations]
+# github-org-members.js [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Version](https://img.shields.io/npm/v/github-org-members.js.svg)](https://www.npmjs.com/package/github-org-members.js) [![Downloads](https://img.shields.io/npm/dt/github-org-members.js.svg)](https://www.npmjs.com/package/github-org-members.js) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
-A JavaScript library for fetching and rendering in HTML the members of a GitHub organization.
+> A JavaScript library for fetching and rendering in HTML the members of a GitHub organization.
 
 ## Installation
 
