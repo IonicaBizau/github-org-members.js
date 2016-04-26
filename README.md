@@ -1,16 +1,19 @@
+
 # github-org-members.js [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Version](https://img.shields.io/npm/v/github-org-members.js.svg)](https://www.npmjs.com/package/github-org-members.js) [![Downloads](https://img.shields.io/npm/dt/github-org-members.js.svg)](https://www.npmjs.com/package/github-org-members.js) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
 > A JavaScript library for fetching and rendering in HTML the members of a GitHub organization.
 
-## Installation
+## :cloud: Installation
 
 ```sh
 $ npm i --save github-org-members.js
 ```
 
+
 ## Demo
 
 [Click here](http://ionicabizau.github.io/github-org-members.js/) for a demo, where we fetch the public members of the [jillix](https://github.com/github) and [GitHub](https://github.com/github) organizations.
+
 
 [![](http://i.imgur.com/Mjdi8u8.png)](http://ionicabizau.github.io/github-org-members.js/)
 
@@ -59,7 +62,8 @@ $ npm i --save github-org-members.js
 </script>
 ```
 
-## Documentation
+## :memo: Documentation
+
 
 ### `GhOrgMembers(options, callback)`
 Inits the `GhOrgMembers` instance.
@@ -95,13 +99,13 @@ This method is called after HTML rendering is done.
 - **Object** `err`: The response error value.
 - **Array** `members`: The fetched members.
 
-## How to contribute
+
+
+## :yum: How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
-## Where is this library used?
-If you are using this library in one of your projects, add it in this list. :sparkles:
 
-## License
+## :scroll: License
 
 [MIT][license] © [Ionică Bizău][website]
 
