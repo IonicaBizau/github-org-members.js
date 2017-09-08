@@ -6,6 +6,7 @@ You can see below the API reference of this module.
 Inits the `GhOrgMembers` instance.
 
 #### Params
+
 - **Object** `options`: An object containing the following fields:
  - `container` (String|HTMLElement): The container element (e.g. `".myClass"`, `document.getElementById("foo")`).
  - `user` (String|HTMLElement): The user element (e.g. `".user"`, `document.getElementById("user")`).
@@ -23,6 +24,7 @@ Inits the `GhOrgMembers` instance.
 This method is called after fetching the users and before rendering the HTML.
 
 #### Params
+
 - **Object** `err`: The response error value.
 - **Array** `members`: The fetched members.
 
@@ -33,6 +35,7 @@ This method is called after fetching the users and before rendering the HTML.
 This method is called after HTML rendering is done.
 
 #### Params
+
 - **Object** `err`: The response error value.
 - **Array** `members`: The fetched members.
 
