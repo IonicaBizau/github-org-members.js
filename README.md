@@ -10,11 +10,16 @@
 ## :cloud: Installation
 
 ```sh
-$ npm i --save github-org-members.js
+# Using npm
+npm install --save github-org-members.js
+
+# Using yarn
+yarn add github-org-members.js
 ```
 
 
 ## Demo
+
 
 [Click here](http://ionicabizau.github.io/github-org-members.js/) for a demo, where we fetch the public members of the [jillix](https://github.com/github) and [GitHub](https://github.com/github) organizations.
 
@@ -22,6 +27,7 @@ $ npm i --save github-org-members.js
 [![](http://i.imgur.com/Mjdi8u8.png)](http://ionicabizau.github.io/github-org-members.js/)
 
 ## Example
+
 ```html
 <!-- Organization members container -->
 <org-members>
@@ -65,6 +71,7 @@ $ npm i --save github-org-members.js
     };
 </script>
 ```
+
 
 ## :memo: Documentation
 
