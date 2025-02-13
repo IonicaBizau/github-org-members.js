@@ -25,7 +25,7 @@ This method is called after fetching the users and before rendering the HTML.
 
 #### Params
 
-- **Object** `err`: The response error value.
+- **Object|null** `err`: The response error value.
 - **Array** `members`: The fetched members.
 
 #### Return
@@ -36,6 +36,6 @@ This method is called after HTML rendering is done.
 
 #### Params
 
-- **Object** `err`: The response error value.
+- **Object|null** `err`: The response error value.
 - **Array** `members`: The fetched members.
 
